@@ -1,0 +1,10 @@
+import requests
+
+api_key='2ad207f1576cc623c5396f3df877c5d7'
+city='moscow'
+res=requests.get('https://api.openweathermap.org/data/2.5/weather',params={'q':city,'units':'metric','leng':'RU','APPID':api_key})
+data=res.json()
+
+print('City',data['name'])
+for i in data['main']:
+    print('  ',i,'-->',data['main'][i])
