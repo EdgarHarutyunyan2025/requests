@@ -1,0 +1,35 @@
+#dolari kurs@
+
+import requests
+params=requests.get('https://v6.exchangerate-api.com/v6/217936093d74ee1fb37fa8f7/latest/USD',params={'APPID':'217936093d74ee1fb37fa8f7'})
+
+coin=params.json()
+mdict=coin['conversion_rates']
+
+print('base_code -->'.upper(),coin['base_code'])
+def valut(mdict,cou):
+    flag=0
+    for i in mdict:
+        flag+=1
+        print('  1 $ -->',mdict[i],i)
+        if flag==cou:
+            break
+
+valut(mdict,15)
+
+
+
+#xndir-1 bitcoini arjeq@
+
+import requests
+params=requests.get('https://api.coincap.io/v2/assets')
+#with open('file.json','w') as f:
+#    f.write(params.text)
+coin=params.json()
+
+for i in range(10):
+    print('name--',coin['data'][i]['id'])
+    print('  symbol--',coin['data'][i]['symbol'])
+    print('  priceUsd--',coin['data'][i]['priceUsd'],'$')
+    print('  marketCapUsd--',coin['data'][i]['marketCapUsd'],'$')
+    print('  changePercent24Hr--',coin['data'][i]['changePercent24Hr'])
