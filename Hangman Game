@@ -1,0 +1,51 @@
+word='hangman'
+word=word.upper()
+mlist=['_']*len(word)
+flag_true=0
+flag_false=0
+cou=3
+while True:
+
+            let=input().upper()
+            if len(let)>1 or not let.isalpha():
+                flag_false+=1
+                if flag_false==cou:
+                    print('DUQ PARTVECIQ')
+                    break
+                else:
+                    print('SXAL....MUTQAGREL 1 TAR')
+                    print(mlist,'DUQ UNEQ GUSHAKELU',cou-flag_false, ' hnaravorutyun')
+                    continue
+      
+ 
+            if let in mlist:
+                print(mlist)
+                print(let,'TAR@ GTNVACE')
+                continue
+        
+            for i in range(len(word)):
+                if word[i]==let:
+                    mlist[i]=let
+
+            for j in range(len(word)):
+                if let not in word:
+                    flag_false+=1
+                    print('SXAL TAR')
+                    break
+                if word[j]==mlist[j]:
+                    flag_true+=word.count(let)
+                    print('CHISHT E')
+                    break
+
+            if flag_true==len(word):
+                print(word,'  DUQ HAXTECIQ')
+                
+                break
+
+            if flag_false==cou:
+                print('DUQ PARTVECIQ')
+                break
+            print(mlist,'DUQ UNEQ GUSHAKELU',cou-flag_false, ' hnaravorutyun')
+
+
+
