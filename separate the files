@@ -1,0 +1,44 @@
+import os
+
+
+os.chdir('folder')
+if not os.path.isdir('txt-filer'):
+    os.makedirs('txt-filer')
+if not os.path.isdir('json-filer'):
+    os.makedirs('json-filer')
+os.chdir('..')
+folder=os.walk('folder')
+
+def open_folder(fname):
+    for el in fname:
+        mlist=el
+        return mlist
+
+def open_file(fname):
+    for el in fname:
+        mlist=el
+    return mlist
+
+def sort_file(fname):
+    for el in fname:
+        if '.txt' in el:
+            
+            os.chdir('folder')
+            os.replace(el,'txt-filer/'+el)
+            os.chdir('..')
+
+        if '.json' in el:
+           
+            os.chdir('folder')
+            os.replace(el,'json-filer/'+el)
+            os.chdir('..')
+
+
+
+def main():
+    fnam=open_folder(folder)
+    fnam1=open_file(fnam)
+    sort_file(fnam1)
+
+if __name__=='__main__':
+    main()
