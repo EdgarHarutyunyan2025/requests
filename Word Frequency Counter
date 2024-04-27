@@ -1,0 +1,35 @@
+import re
+
+def read_file(fname):
+    with open(fname) as f:
+        mlist=re.findall(r'[0-9a-zA-Z]+',f.read())
+        mdic={}
+        for i in mlist:
+            mdic[i]=mlist.count(i)
+    return mdic
+
+
+def sort_dict(mdict):
+    dict_sort={}
+    for i in sorted(mdict.items(),key=lambda x:x[1],reverse=True):
+        dict_sort[i[0]]=i[1]
+    return dict_sort
+   
+
+def cound_word(mdict,cou):
+    flag=0
+    for k,v in mdict.items():
+        flag+=1
+        if flag==cou:
+            break
+        print(k,v)
+
+
+def main():    
+    mfile=read_file('fila.txt')
+    mdict=sort_dict(mfile)
+    cound_word(mdict,20)
+
+
+if __name__=='__main__':
+    main()
