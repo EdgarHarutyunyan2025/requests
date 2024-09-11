@@ -1,5 +1,5 @@
 #dolari kurs@
-#comment
+
 import requests
 params=requests.get('https://v6.exchangerate-api.com/v6/217936093d74ee1fb37fa8f7/latest/USD',params={'APPID':'217936093d74ee1fb37fa8f7'})
 
